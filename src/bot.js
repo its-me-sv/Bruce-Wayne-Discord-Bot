@@ -1,3 +1,21 @@
+const http = require("http");
+const port = process.env.PORT || 5000;
+
+const server = http.createServer((req, res) => {
+    switch(req.url) {
+        case '/validation': {
+            res.end(`Validation route @ ${port}`);
+            break;
+        }
+        default: {
+            res.end("U sure where are u ?");
+            break;
+        }
+    }
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
+
 try {
     require('dotenv').config();
 
